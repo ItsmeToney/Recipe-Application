@@ -1,0 +1,158 @@
+.add__recipe__window {
+  position: fixed;
+  width: 80%;
+
+  background-color: #fff;
+  text-transform: uppercase;
+  z-index: 1000;
+  left: 10%;
+  border-radius: 1rem;
+  padding: 3rem;
+  overflow: hidden;
+  filter: drop-shadow(0 0.7rem 3rem rgba($color-grey-dark-1, 0.8));
+  transition: all 0.5s ease-in;
+
+  .close__btn {
+    position: absolute;
+    font-family: inherit;
+    font-size: 3.5rem;
+    background: none;
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+    color: inherit;
+    transition: all 0.15s ease-in;
+
+    &:active {
+      opacity: 0.7;
+    }
+  }
+
+  @media only screen and (max-width: $size-large) {
+    top: 20%;
+    font-size: 80%;
+  }
+}
+
+.upload {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem 6rem;
+
+  &__column {
+    display: grid;
+    grid-template-columns: 1.5fr 2.5fr;
+    align-items: center;
+    gap: 1.5rem 0;
+
+    & input {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 0.4rem 1rem;
+      font-size: 1.2rem;
+      color: $color-grey-dark-2;
+
+      &::placeholder {
+        color: $color-grey-light-3;
+        font-size: 1rem;
+
+        @media only screen and (max-width: $size-large) {
+          font-size: 0.8rem; /////////////////////
+        }
+      }
+      &:focus {
+        outline: none;
+        border: 1px solid $color-primary;
+        background-color: $color-grey-light-1;
+      }
+      @media only screen and (max-width: $size-large) {
+        width: 10rem;
+        font-size: 0.8rem;
+      } ////////////////////////////////
+    }
+  }
+  &__heading {
+    grid-column: 1/3;
+    justify-self: center;
+    font-size: 2.25rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  & button {
+    grid-column: 1/3;
+    justify-self: center;
+    font-size: 1.5rem;
+    background-image: $background-gradient;
+    color: #fff;
+    transition: all 0.15s ease-in;
+
+    svg {
+      fill: currentColor;
+    }
+
+    &:active {
+      opacity: 0.7;
+    }
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+@media only screen and (max-width: $size-small) {
+  .add__recipe__window {
+    position: absolute;
+    top: 4%;
+    padding: 1rem;
+
+    .upload {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      &__column {
+        input {
+          width: 8rem;
+        }
+      }
+
+      &__heading {
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      & button {
+        width: 8rem;
+        margin: 0 auto;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  inset: 0;
+  z-index: 100;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media only screen and (min-width: $size-small) and (max-width: $size-medium) {
+  .add__recipe__window {
+    top: 2%;
+    width: 95vw;
+    left: 2.5%;
+    padding-bottom: 1rem;
+  }
+}
